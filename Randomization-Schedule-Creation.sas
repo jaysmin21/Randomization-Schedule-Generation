@@ -14,6 +14,8 @@ proc print data=randlist_final (obs=20)
 label noobs;
 var patient trt blocks;
 label patient="Patient ID" trt="Treatment";
+title1 'Uncomplicated Plasmodium Falciparum Malaria';
+title2 'Protocol Randomization Schedule';
 run;
 
 /*creating a randomization schedule: n=480, random block size= 3, 6*/
@@ -71,26 +73,31 @@ where age=1 and country=1;
 var patient trt;
 label patient='Patient ID' trt='Treatment';
 run;
+
 proc print data=randlist_strat(obs=10) noobs label;
 where age=1 and country=2;
 var patient trt;
 label patient='Patient ID' trt='Treatment';
 run;
+
 proc print data=randlist_strat(obs=10) noobs label;
 where age=1 and country=3;
 var patient trt;
 label patient='Patient ID' trt='Treatment';
 run;
+
 proc print data=randlist_strat(obs=10) noobs label;
 where age=2 and country=1;
 var patient trt;
 label patient='Patient ID' trt='Treatment';
 run;
+
 proc print data=randlist_strat(obs=10) noobs label;
 where age=2 and country=2;
 var patient trt;
 label patient='Patient ID' trt='Treatment';
 run;
+
 proc print data=randlist_strat(obs=10) noobs label;
 where age=2 and country=3;
 var patient trt;
@@ -141,3 +148,4 @@ replace;
     sheet="Randomization_Schedule";
 
 run;
+
